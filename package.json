@@ -1,0 +1,23 @@
+{
+  "name": "asset-management-system",
+  "version": "1.0.0",
+  "description": "Asset management system built with Node.js, PostgreSQL, and ESLint.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "migrate": "knex migrate:latest",
+    "seed": "knex seed:run",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "knex": "^0.95.0",
+    "node-cron": "^2.0.3",
+    "node-fetch": "^3.3.2",
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0"
+  }
+}
