@@ -1,17 +1,16 @@
-const fetch = require('node-fetch').default;
+const axios = require('axios');
 
 class AssetApiClient {
   async fetchAssets() {
     try {
-      const response = await fetch('https://669ec22d15704bb0e304842d.mockapi.io/assets');
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      const response = await axios.get('https://669ec22d15704bb0e304842d.mockapi.io/assets');
+      // Check if the response status is OK (200)
+      if (response.status !== 200) {
+        throw new Error(`API request failed with status ${response.status}: ${response.statusText}`);
       }
-      const data = await response.json();
-      console.log('Fetched assets:', data);
-      return data;
+      return response.data;
     } catch (error) {
-      console.error('Error fetching assets:', error.message);
+      console.error('Error fetching assets from API:', error.message);
       throw error;
     }
   }
